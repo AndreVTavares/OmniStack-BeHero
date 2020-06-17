@@ -40,7 +40,6 @@ export default function Register() {
             alert('erro no cadastro, tente novamente.')
         }
 
-       
     }
 
     return (
