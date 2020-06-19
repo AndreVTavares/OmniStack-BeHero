@@ -16,7 +16,6 @@ export default function Routes() {
                 <AppStack.Screen name="Incidents" component={Incidents} />
                 <AppStack.Screen name="Detail" component={Detail} />
                 
-
             </AppStack.Navigator>
 
         </NavigationContainer>
