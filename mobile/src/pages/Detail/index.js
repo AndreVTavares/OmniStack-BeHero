@@ -17,7 +17,7 @@ export default function Detail() {
     const route = useRoute();
 
     const incident = route.params.incident
-    const message = "Olá Vovó Joana, estou entrando em contado para ajudar no caso Max ta cego! com o valor de 1500,00 reais"
+    const message = `Olá ${incident.name}, estou entrando em contado para ajudar no caso ${incident.title} com o valor de ${Intl.NumberFormat('pt-BR', { style: 'currency',  currency: 'BRL'}.format(incident.value))}`
 
     function navigateToHome() {
         navigation.goBack();
@@ -26,8 +26,8 @@ export default function Detail() {
     function sendMail() {
 
         MailComposer.composeAsync({
-            subject: 'Herói do caso: Max ta cego!',
-            recipients ['andretavares3@gmail.com'],
+            subject: `Herói do caso: ${incident.title}`,
+            recipients: [incident.email],
             body: message,
         })
 
@@ -35,7 +35,7 @@ export default function Detail() {
 
     function sendWhatsapp() {
 
-        Linking.openURL(`whatsapp://send?phone=85999541137&text=${message}`)
+        Linking.openURL(`whatsapp://send?phone=${incident.whatsapp}&text=${message}`)
 
     }
 
