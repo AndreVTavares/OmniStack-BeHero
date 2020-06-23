@@ -42,7 +42,7 @@ routes.post('/incidents', celebrate({
         value: Joi.number().required(),
     }),
     [Segments.HEADERS]: Joi.object({
-        authorization: Joi.string().required(),
+        authorization: Joi.string().required()
     }).unknown()
 }), IncidentController.create);
 
